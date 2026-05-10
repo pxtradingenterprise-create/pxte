@@ -47,6 +47,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-geo-circle{position:absolute;top:-80px;right:-80px;width:420px;height:420px;border-radius:50%;background:var(--teal);opacity:0.18}
 .hero-geo-rect{position:absolute;bottom:60px;left:-40px;width:180px;height:180px;background:var(--charcoal);opacity:0.06}
 .hero-img-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#e8e6e0 0%,#d4d2cc 100%)}
+.hero-logo{max-width:70%;max-height:70%;object-fit:contain;z-index:10;animation:fadeUp 1s ease 0.6s both;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.1))}
 .hero-stats{position:absolute;bottom:2.5rem;left:4rem;display:flex;gap:3rem;z-index:2}
 .stat{border-left:2px solid var(--teal);padding-left:1rem}
 .stat-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;line-height:1;color:var(--charcoal)}
@@ -181,20 +182,7 @@ footer{background:var(--charcoal);color:var(--white);padding:3rem 4rem;display:f
       <div class="hero-geo-circle"></div>
       <div class="hero-geo-rect"></div>
       <div class="hero-img-placeholder">
-        <svg viewBox="0 0 400 400" width="320" height="320" opacity="0.12">
-          <circle cx="200" cy="200" r="160" fill="none" stroke="#1A1A1A" stroke-width="1"/>
-          <circle cx="200" cy="200" r="120" fill="none" stroke="#1A1A1A" stroke-width="0.5"/>
-          <circle cx="200" cy="200" r="80" fill="none" stroke="#1A1A1A" stroke-width="0.5"/>
-          <line x1="40" y1="200" x2="360" y2="200" stroke="#1A1A1A" stroke-width="0.5"/>
-          <line x1="200" y1="40" x2="200" y2="360" stroke="#1A1A1A" stroke-width="0.5"/>
-          <circle cx="200" cy="200" r="6" fill="#2DD4A7"/>
-          <!-- World map dots suggestion -->
-          <circle cx="155" cy="180" r="3" fill="#2DD4A7" opacity="0.6"/>
-          <circle cx="220" cy="175" r="2" fill="#2DD4A7" opacity="0.6"/>
-          <circle cx="200" cy="220" r="2.5" fill="#2DD4A7" opacity="0.8"/>
-          <circle cx="250" cy="185" r="2" fill="#2DD4A7" opacity="0.5"/>
-          <circle cx="170" cy="195" r="2" fill="#2DD4A7" opacity="0.7"/>
-        </svg>
+        <img src="logo.png" alt="PX Trading Enterprise Logo" class="hero-logo">
       </div>
     </div>
   </div>
