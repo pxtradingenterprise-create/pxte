@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PX Trading Enterprise</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>PX Trading Enterprise | Infrastructure, ICT, Energy & Agriculture</title>
+<meta name="description" content="PX Trading Enterprise is an authorized partner and premier provider of ICT infrastructure, enterprise hardware, networking, energy, agriculture, and civil engineering solutions in South Africa.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -25,6 +26,17 @@
   --panel-dark-text:var(--white);
   --btn-primary-bg:var(--charcoal);
   --btn-primary-text:var(--white);
+  --card-bg:#FFFFFF;
+  --card-border:rgba(0,0,0,0.08);
+  --card-hover-border:#2DD4A7;
+  --card-hover-shadow:0 18px 40px rgba(45,212,167,0.12);
+  --tag-bg:rgba(45,212,167,0.08);
+  --tag-text:#0F6E56;
+  --logo-box-bg:#F8F9FA;
+  --badge-bg:rgba(0,0,0,0.04);
+  --badge-text:#4A4A4A;
+  --ticker-fade:linear-gradient(90deg, #FFFFFF 0%, rgba(255,255,255,0) 100%);
+  --ticker-fade-right:linear-gradient(270deg, #FFFFFF 0%, rgba(255,255,255,0) 100%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -46,14 +58,26 @@
     --panel-dark-text:#FAFAFA;
     --btn-primary-bg:#FAFAFA;
     --btn-primary-text:#1A1A1A;
+    --card-bg:#1A1A1C;
+    --card-border:rgba(255,255,255,0.08);
+    --card-hover-border:#2DD4A7;
+    --card-hover-shadow:0 18px 40px rgba(45,212,167,0.16);
+    --tag-bg:rgba(45,212,167,0.14);
+    --tag-text:#4DEAC0;
+    --logo-box-bg:#242428;
+    --badge-bg:rgba(255,255,255,0.08);
+    --badge-text:#E0E0E0;
+    --ticker-fade:linear-gradient(90deg, #121212 0%, rgba(18,18,18,0) 100%);
+    --ticker-fade-right:linear-gradient(270deg, #121212 0%, rgba(18,18,18,0) 100%);
   }
 }
+
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--charcoal);overflow-x:hidden}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 4rem;background:var(--nav-bg);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border)}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;letter-spacing:0.08em;color:var(--charcoal)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;letter-spacing:0.08em;color:var(--charcoal);text-decoration:none}
 .nav-logo span{color:var(--teal)}
 .nav-links{display:flex;gap:2.5rem;list-style:none}
 .nav-links a{font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color 0.2s}
@@ -69,7 +93,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-title{font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:300;line-height:1.05;margin-bottom:2rem;letter-spacing:-0.01em}
 .hero-title em{font-style:italic;color:var(--teal-dark)}
 .hero-desc{font-size:0.95rem;line-height:1.8;color:var(--mid);max-width:400px;margin-bottom:3rem}
-.hero-actions{display:flex;gap:1rem;align-items:center}
+.hero-actions{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
 .btn-primary{background:var(--btn-primary-bg);color:var(--btn-primary-text);padding:0.9rem 2rem;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif}
 .btn-primary:hover{background:var(--teal-dark);color:#FFFFFF}
 .btn-outline{background:transparent;color:var(--charcoal);padding:0.9rem 2rem;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;border:1.5px solid var(--charcoal);cursor:pointer;transition:all 0.2s;font-family:'DM Sans',sans-serif}
@@ -93,7 +117,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .about-body{font-size:0.95rem;line-height:1.85;color:var(--mid)}
 .about-body p+p{margin-top:1.25rem}
 .about-visual{position:relative}
-.about-card{background:var(--charcoal);color:var(--white);padding:3rem;position:relative;overflow:hidden}
+.about-card{background:var(--charcoal);color:var(--white);padding:3rem;position:relative;overflow:hidden;border-radius:4px}
 .about-card-accent{position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:var(--teal);opacity:0.15}
 .about-card-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;letter-spacing:0.05em;margin-bottom:2rem;opacity:0.7}
 .about-values{display:flex;flex-direction:column;gap:1.25rem}
@@ -104,10 +128,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 
 /* SERVICES */
 .services{padding:8rem 4rem;background:var(--light)}
-.section-header{text-align:center;margin-bottom:5rem}
+.section-header{text-align:center;margin-bottom:4.5rem}
 .section-header .label{font-size:0.72rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:1.25rem;display:inline-flex;align-items:center;gap:0.75rem}
 .section-header .label::before,.section-header .label::after{content:'';display:block;width:2rem;height:1px;background:var(--teal)}
 .section-header h2{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;line-height:1.1}
+.section-header p{font-size:0.95rem;color:var(--mid);max-width:620px;margin:1.2rem auto 0;line-height:1.7}
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--border)}
 .service-card{background:var(--white);padding:2.5rem;transition:all 0.3s;cursor:default;position:relative;overflow:hidden}
 .service-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--teal);transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
@@ -117,21 +142,331 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .service-card:hover .service-desc{color:rgba(255,255,255,0.65)}
 .service-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--border);line-height:1;margin-bottom:1.5rem;transition:color 0.3s}
 .service-card:hover .service-num{color:rgba(255,255,255,0.1)}
-.service-name{font-size:1rem;font-weight:500;letter-spacing:0.05em;margin-bottom:0.75rem;text-transform:uppercase;font-size:0.82rem}
+.service-name{font-weight:500;letter-spacing:0.05em;margin-bottom:0.75rem;text-transform:uppercase;font-size:0.82rem}
 .service-desc{font-size:0.88rem;line-height:1.7;color:var(--mid);transition:color 0.3s}
 
+/* PARTNERS SECTION */
+.partners{padding:8rem 4rem;background:var(--white);position:relative}
+
+/* Infinite Marquee Text Ticker */
+.partners-ticker-wrap{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  margin-bottom:4rem;
+  padding:1.1rem 0;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.partners-ticker-wrap::before,
+.partners-ticker-wrap::after{
+  content:'';
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:100px;
+  z-index:2;
+  pointer-events:none;
+}
+.partners-ticker-wrap::before{left:0;background:var(--ticker-fade)}
+.partners-ticker-wrap::after{right:0;background:var(--ticker-fade-right)}
+
+.ticker-track{
+  display:flex;
+  gap:1.5rem;
+  width:max-content;
+  animation:marquee 34s linear infinite;
+}
+.ticker-track:hover{animation-play-state:paused}
+
+@keyframes marquee {
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+
+.ticker-item{
+  display:inline-flex;
+  align-items:center;
+  gap:0.6rem;
+  padding:0.5rem 1.25rem;
+  background:var(--logo-box-bg);
+  border:1px solid var(--border);
+  border-radius:50px;
+  white-space:nowrap;
+  font-size:0.78rem;
+  font-weight:700;
+  letter-spacing:0.09em;
+  text-transform:uppercase;
+  color:var(--charcoal);
+  transition:all 0.2s ease;
+}
+.ticker-item:hover{
+  border-color:var(--teal);
+  background:var(--tag-bg);
+  color:var(--teal-dark);
+}
+.ticker-dot{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--teal);
+  display:inline-block;
+  flex-shrink:0;
+}
+
+/* Partner Filter Bar */
+.partners-filter{
+  display:flex;
+  justify-content:center;
+  gap:0.75rem;
+  margin-bottom:3.5rem;
+  flex-wrap:wrap;
+}
+.filter-btn{
+  background:var(--light);
+  color:var(--mid);
+  border:1px solid transparent;
+  padding:0.65rem 1.4rem;
+  font-size:0.78rem;
+  font-weight:600;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  border-radius:30px;
+  cursor:pointer;
+  transition:all 0.25s ease;
+  font-family:'DM Sans',sans-serif;
+}
+.filter-btn:hover{
+  background:var(--border);
+  color:var(--charcoal);
+}
+.filter-btn.active{
+  background:var(--charcoal);
+  color:var(--white);
+  border-color:var(--charcoal);
+  box-shadow:0 4px 14px rgba(0,0,0,0.1);
+}
+
+/* Partners Grid */
+.partners-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(290px, 1fr));
+  gap:1.75rem;
+  margin-bottom:4.5rem;
+}
+
+.partner-card{
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:10px;
+  padding:2rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  transition:all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position:relative;
+  overflow:hidden;
+}
+.partner-card::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:3px;
+  background:var(--teal);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform 0.3s ease;
+}
+.partner-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--card-hover-border);
+  box-shadow:var(--card-hover-shadow);
+}
+.partner-card:hover::before{
+  transform:scaleX(1);
+}
+
+.partner-card-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:1.4rem;
+}
+
+.partner-monogram-wrap{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+}
+.partner-monogram{
+  width:46px;
+  height:46px;
+  border-radius:10px;
+  background:var(--logo-box-bg);
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'DM Sans',sans-serif;
+  font-size:0.95rem;
+  font-weight:700;
+  letter-spacing:0.04em;
+  color:var(--charcoal);
+  transition:all 0.3s ease;
+}
+.partner-card:hover .partner-monogram{
+  background:var(--teal);
+  color:#06382C;
+  border-color:var(--teal);
+  transform:scale(1.05);
+}
+
+.partner-status-dot{
+  position:absolute;
+  top:-2px;
+  right:-2px;
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--teal);
+  border:2px solid var(--card-bg);
+  box-shadow:0 0 6px var(--teal);
+}
+
+.partner-badge{
+  font-size:0.68rem;
+  font-weight:700;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  padding:0.35rem 0.75rem;
+  border-radius:20px;
+  background:var(--badge-bg);
+  color:var(--badge-text);
+  border:1px solid var(--border);
+  white-space:nowrap;
+}
+.badge-oem{background:rgba(45,212,167,0.12);color:var(--teal-dark);border-color:rgba(45,212,167,0.3)}
+.badge-net{background:rgba(0,122,255,0.1);color:#007AFF;border-color:rgba(0,122,255,0.25)}
+.badge-dist{background:rgba(255,149,0,0.12);color:#D97706;border-color:rgba(255,149,0,0.25)}
+
+.partner-info{
+  margin-bottom:1.5rem;
+}
+.partner-category-label{
+  font-size:0.7rem;
+  font-weight:700;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--teal-dark);
+  margin-bottom:0.35rem;
+  display:block;
+}
+.partner-name{
+  font-size:1.22rem;
+  font-weight:700;
+  color:var(--charcoal);
+  margin-bottom:0.6rem;
+  letter-spacing:-0.01em;
+}
+.partner-desc{
+  font-size:0.86rem;
+  line-height:1.7;
+  color:var(--mid);
+}
+
+.partner-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.45rem;
+  margin-top:auto;
+  padding-top:1rem;
+  border-top:1px solid var(--border);
+}
+.partner-tag{
+  font-size:0.68rem;
+  font-weight:600;
+  letter-spacing:0.03em;
+  padding:0.25rem 0.65rem;
+  background:var(--tag-bg);
+  color:var(--tag-text);
+  border-radius:4px;
+}
+
+/* Partner Ecosystem CTA */
+.partners-cta-box{
+  background:linear-gradient(135deg, var(--charcoal) 0%, #2A2A2E 100%);
+  color:var(--white);
+  padding:3.5rem 4rem;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:2.5rem;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+.partners-cta-box::after{
+  content:'';
+  position:absolute;
+  top:-60px;
+  right:-60px;
+  width:240px;
+  height:240px;
+  border-radius:50%;
+  background:var(--teal);
+  opacity:0.12;
+  pointer-events:none;
+}
+.partners-cta-content h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.4rem;
+  font-weight:300;
+  margin-bottom:0.75rem;
+  line-height:1.2;
+}
+.partners-cta-content p{
+  font-size:0.92rem;
+  line-height:1.7;
+  color:rgba(255,255,255,0.75);
+  max-width:540px;
+}
+.btn-cta-teal{
+  background:var(--teal);
+  color:#0A2F25;
+  font-family:'DM Sans',sans-serif;
+  font-weight:700;
+  padding:1rem 2.2rem;
+  font-size:0.82rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  border:none;
+  border-radius:2px;
+  cursor:pointer;
+  transition:all 0.2s ease;
+  white-space:nowrap;
+}
+.btn-cta-teal:hover{
+  background:#FFFFFF;
+  color:var(--charcoal);
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(45,212,167,0.3);
+}
+
 /* CLIENTS */
-.clients{padding:8rem 4rem;background:var(--white);text-align:center}
+.clients{padding:8rem 4rem;background:var(--light);text-align:center}
 .clients-title{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;margin-bottom:1rem}
 .clients-sub{font-size:0.88rem;color:var(--mid);margin-bottom:4rem}
 .clients-logos{display:flex;justify-content:center;align-items:center;gap:5rem;flex-wrap:wrap;margin-bottom:4rem}
 .client-logo{display:flex;flex-direction:column;align-items:center;gap:0.75rem}
-.client-logo-mark{width:72px;height:72px;border-radius:50%;background:var(--light);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--charcoal)}
+.client-logo-mark{width:72px;height:72px;border-radius:50%;background:var(--white);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--charcoal)}
 .client-name{font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid)}
-.projects-table{width:100%;max-width:800px;margin:0 auto;border-collapse:collapse}
-.projects-table th{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal-dark);padding:0.75rem 1.25rem;text-align:left;border-bottom:2px solid var(--teal)}
-.projects-table td{padding:1rem 1.25rem;text-align:left;border-bottom:0.5px solid var(--border);font-size:0.88rem}
-.status-badge{display:inline-block;padding:0.2rem 0.75rem;border-radius:20px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase}
+.projects-table{width:100%;max-width:800px;margin:0 auto;border-collapse:collapse;background:var(--white);border-radius:6px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.03)}
+.projects-table th{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal-dark);padding:0.9rem 1.25rem;text-align:left;border-bottom:2px solid var(--teal);background:var(--white)}
+.projects-table td{padding:1.1rem 1.25rem;text-align:left;border-bottom:0.5px solid var(--border);font-size:0.88rem}
+.status-badge{display:inline-block;padding:0.2rem 0.75rem;border-radius:20px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:600}
 .status-current{background:#E1F5EE;color:#085041}
 .status-past{background:var(--light);color:var(--mid)}
 
@@ -145,21 +480,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .vm-text{font-size:0.95rem;line-height:1.85;opacity:0.8;max-width:420px}
 
 /* CONTACT */
-.contact{padding:8rem 4rem;background:var(--light)}
+.contact{padding:8rem 4rem;background:var(--white)}
 .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
 .contact-left .label{font-size:0.72rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:1.25rem;display:flex;align-items:center;gap:0.75rem}
 .contact-left .label::before{content:'';display:block;width:2rem;height:1px;background:var(--teal)}
 .contact-left h2{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:300;line-height:1.15;margin-bottom:2rem}
 .contact-left p{font-size:0.95rem;line-height:1.85;color:var(--mid);margin-bottom:2rem}
-.contact-email{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--charcoal);text-decoration:none;border-bottom:1px solid var(--teal);padding-bottom:0.2rem}
+.contact-email{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--charcoal);text-decoration:none;border-bottom:1px solid var(--teal);padding-bottom:0.2rem;transition:color 0.2s}
+.contact-email:hover{color:var(--teal-dark)}
 .contact-right{display:flex;flex-direction:column;gap:2rem}
-.contact-office{background:var(--white);padding:2rem;border-left:3px solid var(--teal)}
-.contact-office h3{font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:1rem}
+.contact-office{background:var(--light);padding:2rem;border-left:3px solid var(--teal);border-radius:0 6px 6px 0}
+.contact-office h3{font-size:0.8rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:1rem;font-weight:700}
 .contact-office address{font-style:normal;font-size:0.88rem;line-height:1.8;color:var(--mid)}
-.contact-phone{margin-top:0.75rem;font-size:0.88rem;color:var(--charcoal)}
+.contact-phone{margin-top:0.75rem;font-size:0.88rem;color:var(--charcoal);font-weight:500}
 
 /* FOOTER */
-footer{background:var(--footer-bg);color:var(--footer-text);padding:3rem 4rem;display:flex;justify-content:space-between;align-items:center}
+footer{background:var(--footer-bg);color:var(--footer-text);padding:3rem 4rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
 .footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;letter-spacing:0.08em}
 .footer-logo span{color:var(--teal)}
 .footer-copy{font-size:0.78rem;color:var(--footer-muted);letter-spacing:0.05em}
@@ -175,9 +511,18 @@ footer{background:var(--footer-bg);color:var(--footer-text);padding:3rem 4rem;di
 
 .menu-toggle{display:none}
 
+/* RESPONSIVE */
+@media(max-width:1024px){
+  nav{padding:1.25rem 2rem}
+  .hero-left{padding:6rem 2rem 3rem}
+  .about,.services,.partners,.clients,.contact,.vm-panel{padding:5rem 2rem}
+  .hero-title{font-size:4rem}
+  .partners-cta-box{flex-direction:column;align-items:flex-start;padding:2.5rem}
+}
+
 @media(max-width:900px){
   nav{padding:1rem 1.5rem;flex-wrap:wrap}
-  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--white);flex-direction:column;padding:2rem;box-shadow:0 10px 30px rgba(0,0,0,0.05);gap:1.5rem;align-items:center}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--nav-bg);backdrop-filter:blur(16px);flex-direction:column;padding:2rem;box-shadow:0 10px 30px rgba(0,0,0,0.1);gap:1.5rem;align-items:center;border-bottom:1px solid var(--border)}
   .nav-links.active{display:flex}
   .nav-cta{display:none}
   .menu-toggle{display:block;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--charcoal)}
@@ -188,25 +533,28 @@ footer{background:var(--footer-bg);color:var(--footer-text);padding:3rem 4rem;di
   .hero-geo-circle{width:300px;height:300px;top:-40px;right:-40px}
   .hero-geo-rect{width:120px;height:120px;bottom:30px;left:-20px}
   .hero-title{font-size:3rem;margin-bottom:1.5rem}
-  .about-title,.clients-title{font-size:2.5rem}
+  .about-title,.clients-title,.section-header h2{font-size:2.5rem}
   
-  .hero-left,.about,.services,.clients,.contact,.vm-panel{padding:4rem 1.5rem}
+  .hero-left,.about,.services,.partners,.clients,.contact,.vm-panel{padding:4rem 1.5rem}
   .hero-stats{position:relative;bottom:auto;left:auto;padding:0 1.5rem 3rem;background:transparent;gap:1.5rem;flex-wrap:wrap}
   
   .services-grid{grid-template-columns:1fr}
-  footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
+  .partners-grid{grid-template-columns:1fr}
+  .partners-filter{justify-content:flex-start;overflow-x:auto;padding-bottom:0.5rem;-webkit-overflow-scrolling:touch}
+  .filter-btn{white-space:nowrap;font-size:0.72rem;padding:0.5rem 1.1rem}
+  footer{flex-direction:column;gap:1rem;text-align:center;padding:2.5rem 1.5rem}
 }
-
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo">PX<span>·</span>TRADING</div>
-  <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
+  <a href="#" class="nav-logo">PX<span>·</span>TRADING</a>
+  <button class="menu-toggle" aria-label="Toggle Navigation Menu" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
   <ul class="nav-links">
     <li><a href="#about" onclick="document.querySelector('.nav-links').classList.remove('active')">About</a></li>
     <li><a href="#services" onclick="document.querySelector('.nav-links').classList.remove('active')">Services</a></li>
+    <li><a href="#partners" onclick="document.querySelector('.nav-links').classList.remove('active')">Partners</a></li>
     <li><a href="#clients" onclick="document.querySelector('.nav-links').classList.remove('active')">Clients</a></li>
     <li><a href="#contact" onclick="document.querySelector('.nav-links').classList.remove('active')">Contact</a></li>
   </ul>
@@ -216,11 +564,12 @@ footer{background:var(--footer-bg);color:var(--footer-text);padding:3rem 4rem;di
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow">Established 2018 · South Africa · Gauteng & Limpopo</div>
+    <div class="hero-eyebrow">Established 2018 · South Africa · Gauteng &amp; Limpopo</div>
     <h1 class="hero-title">Building<br><em>Tomorrow's</em><br>Infrastructure</h1>
     <p class="hero-desc">A strategically diversified company delivering comprehensive solutions in ICT, agriculture, energy, and civil engineering infrastructure.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Our Services</button>
+      <button class="btn-outline" onclick="document.getElementById('partners').scrollIntoView({behavior:'smooth'})">Our Partners</button>
       <button class="btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Us</button>
     </div>
   </div>
@@ -235,7 +584,7 @@ footer{background:var(--footer-bg);color:var(--footer-text);padding:3rem 4rem;di
   </div>
   <div class="hero-stats">
     <div class="stat"><div class="stat-num">6+</div><div class="stat-label">Sectors</div></div>
-    <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Projects</div></div>
+    <div class="stat"><div class="stat-num">18+</div><div class="stat-label">Authorized Partners</div></div>
     <div class="stat"><div class="stat-num">2</div><div class="stat-label">Provinces</div></div>
   </div>
 </section>
@@ -259,18 +608,6 @@ footer{background:var(--footer-bg);color:var(--footer-text);padding:3rem 4rem;di
         <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong style="color:#fff">Sustainability</strong> — Fostering long-term growth within our communities</div></div>
         <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong style="color:#fff">Partnership</strong> — Bridging private and public sectors for collective progress</div></div>
         <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong style="color:#fff">Excellence</strong> — Delivering measurable, impactful value to every client</div></div>
-            <p style="margin-top:1.25rem">We are committed to providing measurable value through innovation while actively fostering sustainable growth within our communities.</p>
-    </div>
-  </div>
-  <div class="about-visual">
-    <div class="about-card">
-      <div class="about-card-accent"></div>
-      <div class="about-card-title">Our Core Values</div>
-      <div class="about-values">
-        <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong style="color:#fff">Innovation</strong> — Driving transformative solutions that set new industry benchmarks</div></div>
-        <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong style="color:#fff">Sustainability</strong> — Fostering long-term growth within our communities</div></div>
-        <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong style="color:#fff">Partnership</strong> — Bridging private and public sectors for collective progress</div></div>
-        <div class="value-item"><div class="value-dot"></div><div class="value-text"><strong style="color:#fff">Excellence</strong> — Delivering measurable, impactful value to every client</div></div>
       </div>
     </div>
   </div>
@@ -281,6 +618,7 @@ footer{background:var(--footer-bg);color:var(--footer-text);padding:3rem 4rem;di
   <div class="section-header">
     <div class="label">What We Do</div>
     <h2>Our Service Areas</h2>
+    <p>Integrated turnkey solutions engineered to solve complex enterprise and infrastructure challenges.</p>
   </div>
   <div class="services-grid">
     <div class="service-card">
@@ -313,7 +651,6 @@ footer{background:var(--footer-bg);color:var(--footer-text);padding:3rem 4rem;di
       <div class="service-name">General Supplies</div>
       <div class="service-desc">Full-service provision of essential supplies and critical inventory management.</div>
     </div>
-  
     <div class="service-card">
       <div class="service-num">07</div>
       <div class="service-name">IT Infrastructure</div>
@@ -329,7 +666,513 @@ footer{background:var(--footer-bg);color:var(--footer-text);padding:3rem 4rem;di
       <div class="service-name">Cybersecurity</div>
       <div class="service-desc">End-to-end cybersecurity solutions including threat assessment, network protection, and compliance consulting.</div>
     </div>
+  </div>
+</section>
 
+<!-- AUTHORIZED PARTNERS SECTION -->
+<section class="partners" id="partners">
+  <div class="section-header">
+    <div class="label">Technology Ecosystem</div>
+    <h2>Authorized Partners &amp; Distribution</h2>
+    <p>PX Trading Enterprise collaborates with leading global OEMs and premier South African distribution networks to deliver enterprise hardware, networking, power, and mission-critical ICT infrastructure.</p>
+  </div>
+
+  <!-- Animated Brand Ticker Strip -->
+  <div class="partners-ticker-wrap">
+    <div class="ticker-track">
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Lenovo</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>HPE</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>HP Inc.</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Huawei</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Dell Technologies</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>ASUS</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Broadcom</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Duxbury Networking</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Eaton</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>H3C</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Ruckus Networks</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Mustek Limited</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Axiz</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>First Distribution</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>DCC Technologies</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Syntech</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Esquire Technologies</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Pinnacle ICT</span></div>
+
+      <!-- Duplicate set for seamless continuous marquee loop -->
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Lenovo</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>HPE</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>HP Inc.</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Huawei</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Dell Technologies</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>ASUS</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Broadcom</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Duxbury Networking</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Eaton</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>H3C</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Ruckus Networks</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Mustek Limited</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Axiz</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>First Distribution</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>DCC Technologies</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Syntech</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Esquire Technologies</span></div>
+      <div class="ticker-item"><span class="ticker-dot"></span><span>Pinnacle ICT</span></div>
+    </div>
+  </div>
+
+  <!-- Interactive Category Filter Bar -->
+  <div class="partners-filter">
+    <button class="filter-btn active" onclick="filterPartners('all', this)">All Partners (18)</button>
+    <button class="filter-btn" onclick="filterPartners('oem', this)">OEM &amp; Computing (6)</button>
+    <button class="filter-btn" onclick="filterPartners('network', this)">Networking &amp; Power (5)</button>
+    <button class="filter-btn" onclick="filterPartners('distributor', this)">Premier Distributors (7)</button>
+  </div>
+
+  <!-- 18 Partner Cards Grid -->
+  <div class="partners-grid" id="partnersGrid">
+
+    <!-- 1. Lenovo -->
+    <div class="partner-card" data-category="oem">
+      <div>
+        <div class="partner-card-header">
+          <div class="partner-monogram-wrap">
+            <div class="partner-monogram">LN</div>
+            <span class="partner-status-dot" title="Authorized Active Partner"></span>
+          </div>
+          <span class="partner-badge badge-oem">Authorized OEM</span>
+        </div>
+        <div class="partner-info">
+          <span class="partner-category-label">Global Compute Leader</span>
+          <h3 class="partner-name">Lenovo</h3>
+          <p class="partner-desc">Commercial ThinkPad &amp; ThinkCentre fleets, ThinkSystem enterprise rack servers, storage arrays, and high-performance engineering workstations.</p>
+        </div>
+      </div>
+      <div class="partner-tags">
+        <span class="partner-tag">ThinkSystem Servers</span>
+        <span class="partner-tag">Workstations</span>
+        <span class="partner-tag">ThinkPad Fleets</span>
+        <span class="partner-tag">Enterprise Storage</span>
+      </div>
+    </div>
+
+    <!-- 2. HPE -->
+    <div class="partner-card" data-category="oem">
+      <div>
+        <div class="partner-card-header">
+          <div class="partner-monogram-wrap">
+            <div class="partner-monogram">HPE</div>
+            <span class="partner-status-dot" title="Authorized Active Partner"></span>
+          </div>
+          <span class="partner-badge badge-oem">Enterprise Partner</span>
+        </div>
+        <div class="partner-info">
+          <span class="partner-category-label">Enterprise Infrastructure</span>
+          <h3 class="partner-name">Hewlett Packard Enterprise</h3>
+          <p class="partner-desc">Industry-leading HPE ProLiant compute infrastructure, Alletra &amp; Nimble hybrid cloud storage, and intelligent mission-critical systems.</p>
+        </div>
+      </div>
+      <div class="partner-tags">
+        <span class="partner-tag">ProLiant Compute</span>
+        <span class="partner-tag">Alletra Storage</span>
+        <span class="partner-tag">Hybrid Cloud</span>
+        <span class="partner-tag">GreenLake</span>
+      </div>
+    </div>
+
+    <!-- 3. HP -->
+    <div class="partner-card" data-category="oem">
+      <div>
+        <div class="partner-card-header">
+          <div class="partner-monogram-wrap">
+            <div class="partner-monogram">HP</div>
+            <span class="partner-status-dot" title="Authorized Active Partner"></span>
+          </div>
+          <span class="partner-badge badge-oem">Authorized Partner</span>
+        </div>
+        <div class="partner-info">
+          <span class="partner-category-label">Commercial Systems &amp; Print</span>
+          <h3 class="partner-name">HP Inc.</h3>
+          <p class="partner-desc">Enterprise EliteBook &amp; ProBook fleets, Z by HP performance workstations, LaserJet enterprise printers, and secure managed print services.</p>
+        </div>
+      </div>
+      <div class="partner-tags">
+        <span class="partner-tag">EliteBook / ProBook</span>
+        <span class="partner-tag">Z Workstations</span>
+        <span class="partner-tag">Enterprise Print</span>
+        <span class="partner-tag">Displays</span>
+      </div>
+    </div>
+
+    <!-- 4. Huawei -->
+    <div class="partner-card" data-category="oem">
+      <div>
+        <div class="partner-card-header">
+          <div class="partner-monogram-wrap">
+            <div class="partner-monogram">HW</div>
+            <span class="partner-status-dot" title="Authorized Active Partner"></span>
+          </div>
+          <span class="partner-badge badge-oem">Enterprise Alliance</span>
+        </div>
+        <div class="partner-info">
+          <span class="partner-category-label">Telecom &amp; All-Flash Storage</span>
+          <h3 class="partner-name">Huawei Enterprise</h3>
+          <p class="partner-desc">End-to-end telecommunications, OceanStor all-flash data storage, CloudEngine campus routing and switching, and IdeaHub smart interactive boards.</p>
+        </div>
+      </div>
+      <div class="partner-tags">
+        <span class="partner-tag">OceanStor Storage</span>
+        <span class="partner-tag">CloudEngine Switches</span>
+        <span class="partner-tag">IdeaHub Smart Boards</span>
+        <span class="partner-tag">Optical Telecom</span>
+      </div>
+    </div>
+
+    <!-- 5. Dell -->
+    <div class="partner-card" data-category="oem">
+      <div>
+        <div class="partner-card-header">
+          <div class="partner-monogram-wrap">
+            <div class="partner-monogram">DE</div>
+            <span class="partner-status-dot" title="Authorized Active Partner"></span>
+          </div>
+          <span class="partner-badge badge-oem">Authorized Partner</span>
+        </div>
+        <div class="partner-info">
+          <span class="partner-category-label">Enterprise Compute &amp; Client</span>
+          <h3 class="partner-name">Dell Technologies</h3>
+          <p class="partner-desc">Dell PowerEdge enterprise rack &amp; tower servers, Latitude client computers, Precision mobile workstations, and PowerStore SAN/NAS arrays.</p>
+        </div>
+      </div>
+      <div class="partner-tags">
+        <span class="partner-tag">PowerEdge Servers</span>
+        <span class="partner-tag">PowerStore SAN</span>
+        <span class="partner-tag">Latitude Laptops</span>
+        <span class="partner-tag">Precision Workstations</span>
+      </div>
+    </div>
+
+    <!-- 6. Asus -->
+    <div class="partner-card" data-category="oem">
+      <div>
+        <div class="partner-card-header">
+          <div class="partner-monogram-wrap">
+            <div class="partner-monogram">AS</div>
+            <span class="partner-status-dot" title="Authorized Active Partner"></span>
+          </div>
+          <span class="partner-badge badge-oem">Authorized Partner</span>
+        </div>
+        <div class="partner-info">
+          <span class="partner-category-label">Commercial Systems</span>
+          <h3 class="partner-name">ASUS Commercial</h3>
+          <p class="partner-desc">ExpertBook ultra-durable commercial laptops, enterprise motherboards, ProArt displays, and compact mini-PC business computing units.</p>
+        </div>
+      </div>
+      <div class="partner-tags">
+        <span class="partner-tag">ExpertBook Laptops</span>
+        <span class="partner-tag">Commercial Desktops</span>
+        <span class="partner-tag">ProArt Displays</span>
+        <span class="partner-tag">Components</span>
+      </div>
+    </div>
+
+    <!-- 7. Broadcom -->
+    <div class="partner-card" data-category="network">
+      <div>
+        <div class="partner-card-header">
+          <div class="partner-monogram-wrap">
+            <div class="partner-monogram">BC</div>
+            <span class="partner-status-dot" title="Authorized Active Partner"></span>
+          </div>
+          <span class="partner-badge badge-net">Enterprise Alliance</span>
+        </div>
+        <div class="partner-info">
+          <span class="partner-category-label">Virtualization &amp; Silicon</span>
+          <h3 class="partner-name">Broadcom</h3>
+          <p class="partner-desc">Enterprise virtualization with VMware Cloud Foundation, Brocade Fibre Channel SAN fabric, network switching silicon, and cybersecurity solutions.</p>
+        </div>
+      </div>
+      <div class="partner-tags">
+        <span class="partner-tag">VMware Cloud</span>
+        <span class="partner-tag">Brocade SAN Fabric</span>
+        <span class="partner-tag">Network Silicon</span>
+        <span class="partner-tag">Cybersecurity</span>
+      </div>
+    </div>
+
+    <!-- 8. Duxbury Networking -->
+    <div class="partner-card" data-category="network">
+      <div>
+        <div class="partner-card-header">
+          <div class="partner-monogram-wrap">
+            <div class="partner-monogram">DX</div>
+            <span class="partner-status-dot" title="Authorized Active Partner"></span>
+          </div>
+          <span class="partner-badge badge-net">Authorized Partner</span>
+        </div>
+        <div class="partner-info">
+          <span class="partner-category-label">Specialist Networking</span>
+          <h3 class="partner-name">Duxbury Networking</h3>
+          <p class="partner-desc">Specialist networking distributor delivering carrier &amp; enterprise Wi-Fi, managed switches, IP telephony, IoT gateways, and fiber structured cabling.</p>
+        </div>
+      </div>
+      <div class="partner-tags">
+        <span class="partner-tag">Enterprise Wi-Fi</span>
+        <span class="partner-tag">Managed Switches</span>
+        <span class="partner-tag">IP Telephony</span>
+        <span class="partner-tag">Fiber Cabling</span>
+      </div>
+    </div>
+
+    <!-- 9. Eaton -->
+    <div class="partner-card" data-category="network">
+      <div>
+        <div class="partner-card-header">
+          <div class="partner-monogram-wrap">
+            <div class="partner-monogram">ET</div>
+            <span class="partner-status-dot" title="Authorized Active Partner"></span>
+          </div>
+          <span class="partner-badge badge-net">Power Management</span>
+        </div>
+        <div class="partner-info">
+          <span class="partner-category-label">Critical Power &amp; UPS</span>
+          <h3 class="partner-name">Eaton</h3>
+          <p class="partner-desc">Mission-critical online double-conversion UPS systems, intelligent power distribution units (ePDU), rack enclosures, and industrial surge protection.</p>
+        </div>
+      </div>
+      <div class="partner-tags">
+        <span class="partner-tag">Online Double-Conversion UPS</span>
+        <span class="partner-tag">Intelligent ePDUs</span>
+        <span class="partner-tag">Server Enclosures</span>
+        <span class="partner-tag">Surge Protection</span>
+      </div>
+    </div>
+
+    <!-- 10. H3C -->
+    <div class="partner-card" data-category="network">
+      <div>
+        <div class="partner-card-header">
+          <div class="partner-monogram-wrap">
+            <div class="partner-monogram">H3</div>
+            <span class="partner-status-dot" title="Authorized Active Partner"></span>
+          </div>
+          <span class="partner-badge badge-net">Digital Infrastructure</span>
+        </div>
+        <div class="partner-info">
+          <span class="partner-category-label">Core Routing &amp; Switching</span>
+          <h3 class="partner-name">H3C</h3>
+          <p class="partner-desc">Digital infrastructure solutions including high-performance core switches, enterprise cloud routers, Hyperconverged Infrastructure (HCI), and SD-WAN.</p>
+        </div>
+      </div>
+      <div class="partner-tags">
+        <span class="partner-tag">Core Ethernet Switches</span>
+        <span class="partner-tag">Enterprise Routers</span>
+        <span class="partner-tag">Hyperconverged (HCI)</span>
+        <span class="partner-tag">SD-WAN</span>
+      </div>
+    </div>
+
+    <!-- 11. Ruckus Networks -->
+    <div class="partner-card" data-category="network">
+      <div>
+        <div class="partner-card-header">
+          <div class="partner-monogram-wrap">
+            <div class="partner-monogram">RK</div>
+            <span class="partner-status-dot" title="Authorized Active Partner"></span>
+          </div>
+          <span class="partner-badge badge-net">Wireless &amp; Switching</span>
+        </div>
+        <div class="partner-info">
+          <span class="partner-category-label">High-Density Wi-Fi</span>
+          <h3 class="partner-name">Ruckus Networks</h3>
+          <p class="partner-desc">CommScope Ruckus high-density BeamFlex+ Wi-Fi 6/6E &amp; Wi-Fi 7 access points, ICX multigigabit campus stackable switches, and SmartZone controller architecture.</p>
+        </div>
+      </div>
+      <div class="partner-tags">
+        <span class="partner-tag">BeamFlex+ Wi-Fi 6/7</span>
+        <span class="partner-tag">ICX Stackable Switches</span>
+        <span class="partner-tag">SmartZone Controller</span>
+        <span class="partner-tag">Campus Networking</span>
+      </div>
+    </div>
+
+    <!-- 12. Mustek -->
+    <div class="partner-card" data-category="distributor">
+      <div>
+        <div class="partner-card-header">
+          <div class="partner-monogram-wrap">
+            <div class="partner-monogram">MK</div>
+            <span class="partner-status-dot" title="Authorized Active Partner"></span>
+          </div>
+          <span class="partner-badge badge-dist">Premier Distributor</span>
+        </div>
+        <div class="partner-info">
+          <span class="partner-category-label">National ICT Supply</span>
+          <h3 class="partner-name">Mustek Limited</h3>
+          <p class="partner-desc">One of South Africa's premier ICT distributors, providing Tier-1 compute, green energy solar systems, Mecer hardware assembly, and nationwide support services.</p>
+        </div>
+      </div>
+      <div class="partner-tags">
+        <span class="partner-tag">National Distribution</span>
+        <span class="partner-tag">Mecer Brand Hardware</span>
+        <span class="partner-tag">Solar &amp; Green Energy</span>
+        <span class="partner-tag">Component Logistics</span>
+      </div>
+    </div>
+
+    <!-- 13. Axiz -->
+    <div class="partner-card" data-category="distributor">
+      <div>
+        <div class="partner-card-header">
+          <div class="partner-monogram-wrap">
+            <div class="partner-monogram">AZ</div>
+            <span class="partner-status-dot" title="Authorized Active Partner"></span>
+          </div>
+          <span class="partner-badge badge-dist">Leading Distributor</span>
+        </div>
+        <div class="partner-info">
+          <span class="partner-category-label">Pan-African Tech Dist.</span>
+          <h3 class="partner-name">Axiz</h3>
+          <p class="partner-desc">Top African technology distributor providing enterprise cloud platforms, software volume licensing, data centre hardware, and next-generation cybersecurity.</p>
+        </div>
+      </div>
+      <div class="partner-tags">
+        <span class="partner-tag">Cloud Platforms</span>
+        <span class="partner-tag">Data Centre Solutions</span>
+        <span class="partner-tag">Software Licensing</span>
+        <span class="partner-tag">Enterprise Security</span>
+      </div>
+    </div>
+
+    <!-- 14. First Distribution -->
+    <div class="partner-card" data-category="distributor">
+      <div>
+        <div class="partner-card-header">
+          <div class="partner-monogram-wrap">
+            <div class="partner-monogram">FD</div>
+            <span class="partner-status-dot" title="Authorized Active Partner"></span>
+          </div>
+          <span class="partner-badge badge-dist">Value-Added Dist.</span>
+        </div>
+        <div class="partner-info">
+          <span class="partner-category-label">Enterprise Value Distribution</span>
+          <h3 class="partner-name">First Distribution</h3>
+          <p class="partner-desc">Premier value-added distributor across Africa specializing in data center infrastructure, hyperscale cloud licensing, networking, and enterprise storage.</p>
+        </div>
+      </div>
+      <div class="partner-tags">
+        <span class="partner-tag">Data Center Infrastructure</span>
+        <span class="partner-tag">Hyperscale Cloud</span>
+        <span class="partner-tag">Network Fabrics</span>
+        <span class="partner-tag">Backup Solutions</span>
+      </div>
+    </div>
+
+    <!-- 15. DCC Technologies -->
+    <div class="partner-card" data-category="distributor">
+      <div>
+        <div class="partner-card-header">
+          <div class="partner-monogram-wrap">
+            <div class="partner-monogram">DC</div>
+            <span class="partner-status-dot" title="Authorized Active Partner"></span>
+          </div>
+          <span class="partner-badge badge-dist">Authorized Distributor</span>
+        </div>
+        <div class="partner-info">
+          <span class="partner-category-label">Hardware &amp; Peripherals Hub</span>
+          <h3 class="partner-name">DCC Technologies</h3>
+          <p class="partner-desc">Drive Control Corporation distribution covering commercial printing, storage drives, network peripherals, point-of-sale systems, and IT supplies.</p>
+        </div>
+      </div>
+      <div class="partner-tags">
+        <span class="partner-tag">Peripherals &amp; POS</span>
+        <span class="partner-tag">Storage Drives</span>
+        <span class="partner-tag">Print Hardware</span>
+        <span class="partner-tag">IT Supply Chain</span>
+      </div>
+    </div>
+
+    <!-- 16. Syntech -->
+    <div class="partner-card" data-category="distributor">
+      <div>
+        <div class="partner-card-header">
+          <div class="partner-monogram-wrap">
+            <div class="partner-monogram">ST</div>
+            <span class="partner-status-dot" title="Authorized Active Partner"></span>
+          </div>
+          <span class="partner-badge badge-dist">Authorized Distributor</span>
+        </div>
+        <div class="partner-info">
+          <span class="partner-category-label">High-Performance Hardware</span>
+          <h3 class="partner-name">Syntech</h3>
+          <p class="partner-desc">Source-oriented technology distributor delivering high-performance computing, SAN/NAS backup storage, portable power stations, and professional audiovisual gear.</p>
+        </div>
+      </div>
+      <div class="partner-tags">
+        <span class="partner-tag">High-Performance Compute</span>
+        <span class="partner-tag">Backup Power Stations</span>
+        <span class="partner-tag">CCTV &amp; Surveillance</span>
+        <span class="partner-tag">Pro AV Systems</span>
+      </div>
+    </div>
+
+    <!-- 17. Esquire -->
+    <div class="partner-card" data-category="distributor">
+      <div>
+        <div class="partner-card-header">
+          <div class="partner-monogram-wrap">
+            <div class="partner-monogram">EQ</div>
+            <span class="partner-status-dot" title="Authorized Active Partner"></span>
+          </div>
+          <span class="partner-badge badge-dist">Authorized Distributor</span>
+        </div>
+        <div class="partner-info">
+          <span class="partner-category-label">Digital Hub &amp; Displays</span>
+          <h3 class="partner-name">Esquire Technologies</h3>
+          <p class="partner-desc">Award-winning national distributor with regional distribution hubs, supplying computing hardware, digital displays, networking peripherals, and electronics.</p>
+        </div>
+      </div>
+      <div class="partner-tags">
+        <span class="partner-tag">Computing Hardware</span>
+        <span class="partner-tag">Digital Signage</span>
+        <span class="partner-tag">Network Peripherals</span>
+        <span class="partner-tag">Regional Logistics</span>
+      </div>
+    </div>
+
+    <!-- 18. Pinnacle -->
+    <div class="partner-card" data-category="distributor">
+      <div>
+        <div class="partner-card-header">
+          <div class="partner-monogram-wrap">
+            <div class="partner-monogram">PN</div>
+            <span class="partner-status-dot" title="Authorized Active Partner"></span>
+          </div>
+          <span class="partner-badge badge-dist">Premier Distributor</span>
+        </div>
+        <div class="partner-info">
+          <span class="partner-category-label">Premier ICT Supply</span>
+          <h3 class="partner-name">Pinnacle ICT</h3>
+          <p class="partner-desc">Prominent ICT distributor in Southern Africa delivering complete portfolios of enterprise servers, security surveillance, networking infrastructure, and software.</p>
+        </div>
+      </div>
+      <div class="partner-tags">
+        <span class="partner-tag">Enterprise Compute</span>
+        <span class="partner-tag">Network Infrastructure</span>
+        <span class="partner-tag">Security &amp; CCTV</span>
+        <span class="partner-tag">Volume Software</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Partner Procurement CTA Banner -->
+  <div class="partners-cta-box">
+    <div class="partners-cta-content">
+      <h3>Authorized Procurement &amp; Enterprise Deployment</h3>
+      <p>Looking for genuine OEM hardware, tier-1 distributor volume pricing, or turnkey infrastructure installation? Our certified specialists are ready to tailor a solution for your organization.</p>
+    </div>
+    <button class="btn-cta-teal" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request a Partner Quote</button>
   </div>
 </section>
 
@@ -396,6 +1239,24 @@ footer{background:var(--footer-bg);color:var(--footer-text);padding:3rem 4rem;di
   <div class="footer-copy">© 2025 PX Trading Enterprise. All rights reserved.</div>
   <div class="footer-tagline">"We shape our dwellings, and afterwards our dwellings shape us."</div>
 </footer>
+
+<script>
+function filterPartners(category, btn) {
+  const buttons = document.querySelectorAll('.filter-btn');
+  buttons.forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+
+  const cards = document.querySelectorAll('.partner-card');
+  cards.forEach(card => {
+    if (category === 'all' || card.getAttribute('data-category') === category) {
+      card.style.display = 'flex';
+      card.style.animation = 'fadeUp 0.4s ease both';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
 
 </body>
 </html>
